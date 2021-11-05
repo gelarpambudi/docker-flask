@@ -12,10 +12,10 @@ def get_hit_count(remote_ip):
     hits = visitors[remote_ip]
     return hits
 
-@app.route('/')
-def hello():
-    hits = get_hit_count(str(request.remote_addr))
-    ip_res = "User Address: " + request.remote_addr
+@app.route('/',  methods=["GET"])
+def get_ip():
+    hits = get_hit_count(str(request.environ.get('HTTP_X_REAL_IP', request.remote_addr)))
+    ip_res = "User Address: " + request.environ.get('HTTP_X_REAL_IP', request.remote_addr)  
     hit_count = "\nHits: " + str(hits)
     return ip_res+hit_count
 
