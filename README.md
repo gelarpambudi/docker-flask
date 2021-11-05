@@ -10,8 +10,8 @@ This repository contains a simple python web app that print IP hits count. The w
 
 To run the web app, you can use the command below:
 ```
-git clone <repo-name>
-cd <>
+git clone https://github.com/gelarpambudi/docker-flask.git
+cd docker-flask
 docker-compose up -d
 ```
 
